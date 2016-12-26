@@ -1,0 +1,12 @@
+---
+- name: Create the DB.
+  command: > 
+    {{ drush_path }} sql-create -y
+    chdir={{ drupal_core_path }}
+  become: no
+
+- name: Import mysql DB.
+  command: >
+    mysql -u root -proot drupal -e "source /home/vagrant/db/database.sql"
+  notify: restart webserver
+  become: no
