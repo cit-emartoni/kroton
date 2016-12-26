@@ -7,6 +7,6 @@
 
 - name: Import mysql DB.
   command: >
-    mysql -u root -proot drupal -e "source /home/vagrant/db/database.sql"
+    mysql -u {{ drupal_db_user }} -p{{ drupal_db_password }} drupal -e "source /home/{{ vagrant_user }}/db/database.sql"
   notify: restart webserver
   become: no
