@@ -10,6 +10,7 @@
 - Download and install [Vagrant](https://www.vagrantup.com) for your operation system (Linux or Windows).
 - For **linux users**, download and install NFS with command: **sudo apt-get install nfs-kernel-server**.
 - Clone this repository and inside the Vagrant directory, run **vagrant up**.
+- Add the following line to the hosts file: **10.0.1.10 kroton.local**.
 
 ## Documentation:
 Documentation can be found [here](https://docs.google.com/document/d/1bmxM7fB9P__knvZXdLMMhRCwjwK5eyKMv3snj3D7PZk/).
