@@ -9,7 +9,7 @@
 - Download and install [VirtualBox](https://www.virtualbox.org) for your operation system (Linux or Windows).
 - Download and install [Vagrant](https://www.vagrantup.com) for your operation system (Linux or Windows).
 - For **linux users**, download and install NFS with command: **sudo apt-get install nfs-kernel-server**.
-- Clone this repository and inside the Vagrant directory, run **vagrant up**.
+- Clone this repository and inside the Vagrant directory (kroton-vm), run **vagrant up**.
 - Add the following line to the hosts file: **10.0.1.10 kroton.local**.
 
 ## Documentation:
