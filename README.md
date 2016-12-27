@@ -6,10 +6,10 @@
 - **kroton-vm**: Vagrant source used to bring the VM.
 
 ## How to install:
-- Download and install [VirtualBox](https://www.virtualbox.org) for your operation system.
-- Download and install [Vagrant](https://www.vagrantup.com)
-- For linux users, download and install NFS with command: **sudo apt-get install nfs-kernel-server**
-- Clone this repository and inside the Vagrant directory, run **vagrant up**
+- Download and install [VirtualBox](https://www.virtualbox.org) for your operation system (Linux or Windows).
+- Download and install [Vagrant](https://www.vagrantup.com) for your operation system (Linux or Windows).
+- For **linux users**, download and install NFS with command: **sudo apt-get install nfs-kernel-server**.
+- Clone this repository and inside the Vagrant directory, run **vagrant up**.
 
 ## Documentation:
 Documentation can be found [here](https://docs.google.com/document/d/1bmxM7fB9P__knvZXdLMMhRCwjwK5eyKMv3snj3D7PZk/).
