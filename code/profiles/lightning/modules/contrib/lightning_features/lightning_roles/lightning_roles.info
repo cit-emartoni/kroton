@@ -1,0 +1,23 @@
+name = Lightning Roles
+description = User role configurations.
+package = Lightning
+core = 7.x
+
+dependencies[] = ctools
+dependencies[] = defaultconfig
+dependencies[] = features
+dependencies[] = role_export
+dependencies[] = system
+
+features[features_api][] = api:2
+features[user_role][] = ba
+features[user_role][] = curator
+features[user_role][] = reviewer
+features[user_role][] = marketer
+
+; Information added by Drupal.org packaging script on 2016-11-22
+version = "7.x-1.0-beta17"
+core = "7.x"
+project = "lightning_features"
+datestamp = "1479832146"
+

@@ -1,0 +1,90 @@
+<?php
+
+/**
+ * @file
+ * Integrates the lite track changes plugin for CKEditor with Drupal.
+ */
+
+// HTML processing functions.
+require_once dirname(__FILE__) . '/includes/lite.html.inc';
+
+/**
+ * Implements hook_libraries_info().
+ */
+function lite_libraries_info() {
+  return array(
+    'lite' => array(
+      'name' => 'LITE',
+      'vendor url' => 'http://www.loopindex.com/portfolio-item/track-changes-plugin/',
+      'download url' => 'http://ckeditor.com/addon/lite',
+      'version arguments' => array(
+        'file' => 'plugin.js',
+        // /* Source version: 1.2.25 */
+        'pattern' => '/Source version: (\d+\.\d+\.\d+)/',
+        'lines' => 1,
+      ),
+      'files' => array(
+        'js' => array(
+          'lite-includes.js',
+          'lite-interface.js',
+          'plugin.js',
+        ),
+      ),
+    ),
+  );
+}
+
+/**
+ * Implements hook_filter_js_settings_alter().
+ */
+function lite_filter_js_settings_alter(&$settings) {
+  global $user;
+
+  foreach ($settings as $format => $info) {
+    if ($info['editor'] == 'ckeditor') {
+      // Pass the current user's name and ID to lite to associate with changes.
+      $settings[$format]['editorSettings']['lite'] = array(
+        'userId' => $user->uid,
+        'userName' => check_plain(format_username($user)),
+      );
+    }
+  }
+}
+
+/**
+ * Implements hook_entity_view_alter().
+ */
+function lite_entity_view_alter(&$build, $type) {
+  // Add a #post_render callback to act on the rendered HTML of the entity.
+  $build['#post_render'][] = '_lite_entity_post_render';
+}
+
+/**
+ * Hides tracking HTML when viewing entities.
+ */
+function _lite_entity_post_render($markup, $element) {
+  $output = $markup;
+
+  // Only look for tracking elements when an associated class is detected.
+  if (strpos($markup, 'ice-ins') !== FALSE || strpos($markup, 'ice-del') !== FALSE) {
+    $dom = lite_dom_load_html($markup);
+    $xpath = new \DOMXPath($dom);
+
+    // Remove proposed insertions with the "ice-ins" class.
+    foreach ($xpath->query("//ins[contains(concat(' ', normalize-space(@class), ' '), ' ice-ins ')]") as $node) {
+      /** @var \DOMElement $node */
+      $node->parentNode->removeChild($node);
+    }
+
+    // Keep proposed deletions with the "ice-del" class but remove markers.
+    foreach ($xpath->query("//del[contains(concat(' ', normalize-space(@class), ' '), ' ice-del ')]") as $node) {
+      /** @var \DOMElement $node */
+      $text = $node->textContent;
+      lite_replace_dom_node_content($node, $text);
+    }
+
+    $output = lite_serialize($dom);
+  }
+
+  return $output;
+}

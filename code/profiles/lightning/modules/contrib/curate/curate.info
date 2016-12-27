@@ -1,0 +1,12 @@
+name = Curate
+description = Easy content staging and editorial workflows.
+core = 7.x
+package = Lightning
+project = curate
+
+; Information added by Drupal.org packaging script on 2016-04-28
+version = "7.x-1.0"
+core = "7.x"
+project = "curate"
+datestamp = "1461866803"
+
