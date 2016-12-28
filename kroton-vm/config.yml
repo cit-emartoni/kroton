@@ -6,7 +6,7 @@ vagrant_user: vagrant
 vagrant_synced_folder_default_type: nfs
 
 # Home path used on shared configuration
-home_path: /home/emartoni/Vagrant/code
+home_path: /home/emartoni/Projetos/kroton/code
 
 # If you need to run multiple instances of Drupal VM, set a unique hostname,
 # machine name, and IP address for each instance.
@@ -214,10 +214,10 @@ installed_extras:
   # - redis
   # - ruby
   # - selenium
-  # - solr
+  - solr
   # - upload-progress
   # - varnish
-  # - xdebug
+  - xdebug
   # - xhprof
 
 # Add any extra apt or yum packages you would like installed.
