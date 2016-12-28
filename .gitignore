@@ -1,5 +1,8 @@
 # Ignore vagrant VM source.
 kroton-vm/.vagrant/
+kroton-vm/vagrant_ansible_inventory_default
 
 # Ignore IDE files.
 code/.idea/
+code/.project/
+code/.bundle/
