@@ -1,2 +1,5 @@
 # Ignore vagrant VM source.
 kroton-vm/.vagrant/
+
+# Ignore IDE files.
+code/.idea/
