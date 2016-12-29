@@ -12,6 +12,7 @@
 - Clone this repository and edit the file **config.yml** to set the right path.
 - Inside the Vagrant directory (kroton-vm), run **vagrant up** and drink some coffee.
 - Add the following line to the hosts file: **10.0.1.10 kroton.local**.
+- Open your browser and access http://kroton.local.
 
 ## Documentation:
 Documentation can be found [here](https://docs.google.com/document/d/1bmxM7fB9P__knvZXdLMMhRCwjwK5eyKMv3snj3D7PZk/).
