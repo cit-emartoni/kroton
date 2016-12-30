@@ -272,12 +272,14 @@ composer_home_group: "{{ drupalvm_user }}"
 composer_global_packages:
   - { name: hirak/prestissimo, release: '^0.3' }
   - { name: squizlabs/php_codesniffer, release: '2.*' }
+  - { name: drupal/coder, release: 'dev-8.x-2.x' }
 
 # Run specified scripts before or after VM is provisioned. Path is relative to
 # the `provisioning/playbook.yml` file.
 pre_provision_scripts: []
-post_provision_scripts: []
+post_provision_scripts:
   # - "../examples/scripts/configure-solr.sh"
+  - "../scripts/configure-env.sh"
 
 # MySQL Configuration.
 mysql_root_password: root
